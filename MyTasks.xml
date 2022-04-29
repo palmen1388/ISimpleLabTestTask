@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TodoList>
+    <task id="1" header="qwe">
+        <description>qwe</description>
+        <priority>6</priority>
+        <date>29-04-2022</date>
+        <taskStatus>DONE</taskStatus>
+        <dateOfCompletion>29-04-2022</dateOfCompletion>
+    </task>
+    <task id="2" header="1">
+        <description>1</description>
+        <priority>1</priority>
+        <date>29-04-2022</date>
+        <taskStatus>NEW</taskStatus>
+    </task>
+    <task id="3" header="2">
+        <description>2</description>
+        <priority>2</priority>
+        <date>29-04-2022</date>
+        <taskStatus>NEW</taskStatus>
+    </task>
+</TodoList>
