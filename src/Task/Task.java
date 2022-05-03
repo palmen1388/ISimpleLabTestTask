@@ -1,9 +1,5 @@
 package Task;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlType(propOrder = {"id", "header", "description", "priority", "date", "taskStatus", "dateOfCompletion"})
 public class Task {
 
     private int id;
@@ -14,8 +10,20 @@ public class Task {
     private TaskStatus taskStatus;
     private String dateOfCompletion;
 
+    public Task(int id, String header, String description, int priority, String date, TaskStatus taskStatus, String dateOfCompletion) {
+        this.id = id;
+        this.header = header;
+        this.description = description;
+        this.priority = priority;
+        this.date = date;
+        this.taskStatus = taskStatus;
+        this.dateOfCompletion = dateOfCompletion;
+    }
 
-    @XmlAttribute
+    public Task() {
+
+    }
+
     public int getId() {
         return id;
     }
@@ -24,7 +32,6 @@ public class Task {
         this.id = id;
     }
 
-    @XmlAttribute
     public String getHeader() {
         return header;
     }

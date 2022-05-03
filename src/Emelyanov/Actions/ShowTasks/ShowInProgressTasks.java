@@ -1,18 +1,35 @@
 package Emelyanov.Actions.ShowTasks;
 
-import Emelyanov.Actions.Actionable;
+import Emelyanov.Actions.Action;
 import Task.Task;
 import Task.TaskStatus;
 
-public class ShowInProgressTasks implements Actionable {
+import java.util.ArrayList;
+
+public class ShowInProgressTasks extends Action {
+
+    private final String name;
+
+    public ShowInProgressTasks() {
+        this.name = "list_in_progress";
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
 
 
     @Override
-    public void doAction() {
+    public void doAction(ArrayList<Task> taskList) {
         for (Task task : taskList) {
             if (TaskStatus.IN_PROGRESS.equals(task.getTaskStatus())) {
-                System.out.println(task.toString());
+                System.out.println(task);
             }
         }
+    }
+
+    public String toString() {
+        return name;
     }
 }

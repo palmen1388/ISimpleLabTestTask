@@ -1,18 +1,35 @@
 package Emelyanov.Actions.ShowTasks;
 
-import Emelyanov.Actions.Actionable;
+import Emelyanov.Actions.Action;
 import Task.Task;
 import Task.TaskStatus;
 
-public class ShowNewTasks implements Actionable {
+import java.util.ArrayList;
+
+public class ShowNewTasks extends Action {
+
+    private final String name;
+
+    public ShowNewTasks() {
+        this.name = "list_new";
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
 
 
     @Override
-    public void doAction() {
+    public void doAction(ArrayList<Task> taskList) {
         for (Task task : taskList) {
             if (TaskStatus.NEW.equals(task.getTaskStatus())) {
-                System.out.println(task.toString());
+                System.out.println(task);
             }
         }
+    }
+
+    public String toString() {
+        return name;
     }
 }

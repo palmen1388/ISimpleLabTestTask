@@ -1,24 +1,32 @@
 package Emelyanov;
 
-public enum ActionMenu {
+import Emelyanov.Actions.Action;
+import Task.Task;
 
-    WRONG_VALUE ("Неверное значение"),
-    CREATE ("new - создать задачу"),
-    EDIT("edit - редактировать задачу"),
-    DONE("complete - пометить задачу как выполненную"),
-    IN_PROGRESS("in_progress - пометить задачу как выполняемую"),
-    LIST("list - вывести все задачи"),
-    LIST_NEW("list -s new - чтобы вывести все новые задачи"),
-    LIST_IN_PROGRESS("list -s in_progress - чтобы вывести все выполняемые задачи"),
-    LIST_DONE("list -s done - чтобы вывести все выполненные задачи"),
-    REMOVE("remove - чтобы удалить"),
-    EXIT("exit - чтобы выйти"),
-    REFERENCE("help - чтобы получить справку");
+import java.util.ArrayList;
 
-    public String menuDescription;
+public class ActionMenu {
 
+    private Action[] actions;
 
-    ActionMenu(String menuDescription) {
-        this.menuDescription = menuDescription;
+    public ActionMenu(Action[] actions) {
+        this.actions = actions;
+    }
+
+    public void executeAction(String value, ArrayList<Task> taskList) {
+        int temp = 0;
+        for (Action action : actions) {
+            if (action.getName().equalsIgnoreCase(value)) {
+                action.doAction(taskList);
+                temp++;
+            }
+            if ("help".equalsIgnoreCase(value)) {
+                System.out.println(action.getName());
+            }
+        }
+        if (temp == 0) {
+            System.out.println("Такой команды не существует");
+        }
     }
 }
+
